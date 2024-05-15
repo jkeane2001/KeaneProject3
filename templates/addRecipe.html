@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Recipe</title>
+</head>
+<body>
+    <h1>Add a Recipe</h1>
+    <a href="{{url_for('index')}}">Return to Index Page</a><br>
+    <form action="/addRecipe" method="POST" enctype="multipart/form-data">
+        <div>
+            <label for="recipeName">Enter Recipe Name:</label>
+            <input type="text" id="recipeName" name="recipeName" required>
+        </div>
+        <div>
+            <label for="ingredients">Enter Ingredients:</label>
+            <textarea id="ingredients" name="ingredients" rows="5" cols="50" required></textarea>
+        </div>
+        <div>
+            <label for="instructions">Enter Instructions:</label>
+            <textarea id="instructions" name="instructions" rows="10" cols="50" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Add Recipe</button>
+        </div>
+
+    </form>
+</body>
+</html>

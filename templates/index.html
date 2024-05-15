@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Book App</title>
+</head>
+<body>
+    <h1>Welcome to Chef Ari's Recipe Book:</h1>
+    <h3>Create and Store Recipes</h3>
+    <a href="{{url_for('addRecipe')}}">Add a Recipe</a><br>
+    <h2>Recipe Book</h2>
+    {% if recipes %}
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <h3>{{ recipe[1] }}</h3>
+                <p><strong>Ingredients:</strong> {{ recipe[2] }}</p>
+                <p><strong>Instructions:</strong> {{ recipe[3] }}</p>
+                <form action="{{ url_for('deleteRecipe', recipeID=recipe[0]) }}" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>There are currently no recipes in the database.</p>
+        <p>Click the Button to Add Some</p>
+    {% endif %}
+</body>
+</html>
